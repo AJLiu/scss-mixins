@@ -1,0 +1,72 @@
+/*
+Kieran Venison scss mixin
+kieranmv95@gmail.com
+Example usage: http://codepen.io/Kieranmv95/pen/QNYLvE
+www.kieranvenison.co.uk
+*/
+
+@mixin arrow($settings){
+	
+	//Map settings
+	$arrow-direction: map-get($settings, direction);
+	$arrow-color: map-get($settings, color);
+	$arrow-size: map-get($settings, size);
+	
+	//Generic settings
+	width: 0;
+	height: 0;
+	display: inline-block;
+	
+	//Arrow main statement
+	@if ($arrow-direction == down){
+		border-left: $arrow-size solid transparent;
+		border-right: $arrow-size solid transparent;
+		border-top: $arrow-size solid $arrow-color;
+	} @else if ($arrow-direction == up) {
+		border-left: $arrow-size solid transparent;
+		border-right: $arrow-size solid transparent;
+		border-bottom: $arrow-size solid $arrow-color;
+	} @else if ($arrow-direction == left){
+		border-top: $arrow-size solid transparent;
+		border-bottom: $arrow-size solid transparent;
+		border-right: $arrow-size solid $arrow-color;
+	} @else if ($arrow-direction == right){
+		border-top: $arrow-size solid transparent;
+		border-bottom: $arrow-size solid transparent;
+		border-left: $arrow-size solid $arrow-color;
+	}
+}
+
+//EXAMPLE USAGE
+
+.right {
+	@include arrow((
+		direction: 'right',
+		color: orange,
+		size: 30px
+	));
+}
+
+.down {
+	@include arrow((
+		direction: 'down',
+		color: black,
+		size: 30px
+	));
+}
+
+.up {
+	@include arrow((
+		direction: 'up',
+		color: blue,
+		size: 60px
+	));
+}
+
+.left {
+	@include arrow((
+		direction: 'left',
+		color: red,
+		size: 10px
+	));
+}

@@ -1,0 +1,40 @@
+$md-red: #F44336;
+$md-pink: #E91E63;
+$md-purple: #9C27B0;
+$md-deep-purple: #673AB7;
+$md-indigo: #3F51B5;
+$md-blue: #2196F3;
+$md-light-blue: #03A9F4;
+$md-cyan: #00BCD4;
+$md-teal: #009688;
+$md-teal-300: #4DB6AC;
+$md-green: #4CAF50;
+$md-light-green: #8BC34A;
+$md-lime: #CDDC39;
+$md-yellow: #FFEB3B;
+$md-amber: #FFC107;
+$md-orange: #FF9800;
+$md-deep-orange: #FF5722;
+$md-brown: #795548;
+$md-grey: #9E9E9E;
+$md-grey-700: #616161;
+$md-blue-grey: #607D8B;
+
+// Text
+$primary-dark-color: transparentize(#000000, .13);
+$secondary-dark-color: transparentize(#000000, .46);
+$disabled-dark-color: transparentize(#000000, .62);
+$divider-dark-color: transparentize(#000000,.88);
+
+$primary-light-color: transparentize(#ffffff, 0);
+$secondary-light-color: transparentize(#ffffff, .3);
+$disabled-light-color: transparentize(#ffffff, .5);
+$divider-light-color: transparentize(#ffffff, .88);
+
+// Card shadows
+
+$md-box-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$md-box-shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$md-box-shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$md-box-shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$md-box-shadow-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);

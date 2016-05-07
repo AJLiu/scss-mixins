@@ -1,0 +1,116 @@
+// Credits to Nicolas Poirier
+@mixin triangle($settings) {
+	$width: map-get($settings, width);
+	$color: map-get($settings, color);
+	$not-equi: map-get($settings, not-equi);
+
+	content: ' ';
+	display: block;
+	width:0;
+	height:0;
+
+	@if $not-equi {
+		$sides: map-get($settings, side);
+		$height: map-get($settings, height);
+
+		$side1: nth($sides, 1);
+		$side2: nth($sides, 2);
+
+		@if $side1 == 'left' {
+			border-right: $width solid $color;
+
+			@if $side2 == 'bottom' {
+				border-top: $height solid transparent;
+			}
+			@else {
+				border-bottom: $height solid transparent;
+			}
+		}
+		@else if $side1 == 'right' {
+			border-left: $width solid $color;
+
+			@if $side2 == 'bottom' {
+				border-top: $height solid transparent;
+			}
+			@else {
+				border-bottom: $height solid transparent;
+			}
+		}
+		@else if $side1 == 'top' {
+			border-bottom: $width solid $color;
+
+			@if $side2 == 'left' {
+				border-right: $height solid transparent;
+			}
+			@else {
+				border-left: $height solid transparent;
+			}
+		}
+		@else {
+			border-top: $width solid $color;
+
+			@if $side2 == 'left' {
+				border-right: $height solid transparent;
+			}
+			@else {
+				border-left: $height solid transparent;
+			}
+		}
+	}
+	@else {
+		$side: map-get($settings, side);
+
+		@if $side == 'left' or $side == 'right' {
+			border-top: $width solid transparent;
+			border-bottom: $width solid transparent;
+		}
+		@else {
+			border-left: $width solid transparent;
+			border-right: $width solid transparent;
+		}
+
+		@if $side == 'left' {
+			border-right: $width solid $color;
+		}
+		@else if $side == 'right' {
+			border-left: $width solid $color;
+		}
+		@else if $side == 'top' {
+			border-bottom: $width solid $color;
+		}
+		@else if $side == 'bottom' {
+			border-top: $width solid $color;
+		}
+	}
+}
+
+
+
+// Mixin usage, I often use it with :before or :after
+&:before {
+	position: absolute;
+		top: 0;
+		left: -30px;
+	
+	@include triangle((
+		not-equi: true,
+		width: 30px,
+		height: 70px,
+		color: #000,
+		side: ('left', 'bottom')
+	));
+}
+
+
+// Equilateral triangle
+&:before {
+	position: absolute;
+		top: 0;
+		left: -30px;
+	
+	@include triangle((
+		width: 30px,
+		color: #000,
+		side: 'left'
+	));
+}
